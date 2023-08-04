@@ -3,16 +3,26 @@
 		- There is synchronous functions for all node methods but this can block the thread
 			so it is recommended to use asynchronous functions.
 */
-const fs = require('fs');
+const fs = require('node:fs');
+const fsPromises = require('node:fs/promises');
 
 // Read a file from the system
 function readFile(route, callback) {
-	fs.readFile(route, (error, data) => {
+	fs.readFile(route, (_error, data) => {
 		callback(data.toString());
 	})
 }
 
 readFile(__dirname + '/file.txt', console.log);
+
+/* with promisses */
+function readFilePromises(route) {
+	fsPromises.readFile(route)
+		.then(data => console.log(data.toString()))
+		.catch(error => console.error('An error has ocurred', error));
+}
+
+readFilePromises(__dirname + '/file.txt');
 
 //write a file
 function writeFile({ route, content, callback }) {

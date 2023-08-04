@@ -1,6 +1,6 @@
 //a child process is a separate process that is spawned by a parent process (typically the Node.js process);
 
-const { exec } = require('child_process');
+const { exec } = require('node:child_process');
 
 exec('ls -la', (error, stdout, stderr) => {
 	if (error) {
