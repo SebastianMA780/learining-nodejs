@@ -1,2 +1,11 @@
-# REST CLIENT FILE CONFIG
-GET http://localhost:51021
+### REST CLIENT FILE CONFIG
+GET http://localhost:1234
+
+### testing post in node native
+POST http://localhost:1234/data
+Content-Type: application/json
+
+{
+		"name": "test",
+		"email": ""
+}
