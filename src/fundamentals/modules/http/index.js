@@ -10,6 +10,7 @@ const server = http.createServer((req, res) => {
 	res.end()
 })
 
-server.listen(3000, () => {
-	console.log('Server started, listening on port 3000');
+//0 means random port, first available port.
+server.listen(0, () => {
+	console.log(`Server started, listening on port ${server.address().port}`);
 });
